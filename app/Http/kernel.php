@@ -1,5 +1,18 @@
-'api' => [
-    \Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful::class,
-    'throttle:api',
-    \Illuminate\Routing\Middleware\SubstituteBindings::class,
-],
+<?php
+
+namespace App\Http;
+
+use Illuminate\Foundation\Http\Kernel as HttpKernel;
+
+class Kernel extends HttpKernel
+{
+    protected $middlewareGroups = [
+        'api' => [
+            \Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful::class,
+            'throttle:api',
+            \Illuminate\Routing\Middleware\SubstituteBindings::class,
+        ],
+    ];
+
+    // Other properties and methods can be defined here
+}
